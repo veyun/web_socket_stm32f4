@@ -56,7 +56,7 @@ osThreadId SecondTaskHandle;
 
 /* Private function prototypes -----------------------------------------------*/
 /* USER CODE BEGIN FunctionPrototypes */
-   
+extern void appUsart_TaskInit(void);
 /* USER CODE END FunctionPrototypes */
 
 void thread_MainTask(void const * argument);
@@ -118,6 +118,7 @@ void MX_FREERTOS_Init(void) {
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
+	appUsart_TaskInit();
   /* USER CODE END RTOS_THREADS */
 
 }
@@ -174,5 +175,3 @@ void thread_SecondTask(void const * argument)
 /* USER CODE BEGIN Application */
      
 /* USER CODE END Application */
-
-/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

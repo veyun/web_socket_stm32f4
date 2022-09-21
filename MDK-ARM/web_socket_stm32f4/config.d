@@ -5,7 +5,7 @@ web_socket_stm32f4\config.o: ../Core/Inc/stm32f4xx_hal_conf.h
 web_socket_stm32f4\config.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h
 web_socket_stm32f4\config.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h
 web_socket_stm32f4\config.o: ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h
-web_socket_stm32f4\config.o: ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h
+web_socket_stm32f4\config.o: ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f429xx.h
 web_socket_stm32f4\config.o: ../Drivers/CMSIS/Include/core_cm4.h
 web_socket_stm32f4\config.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 web_socket_stm32f4\config.o: ../Drivers/CMSIS/Include/cmsis_version.h
@@ -33,6 +33,7 @@ web_socket_stm32f4\config.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_p
 web_socket_stm32f4\config.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rng.h
 web_socket_stm32f4\config.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h
 web_socket_stm32f4\config.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h
+web_socket_stm32f4\config.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h
 web_socket_stm32f4\config.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 web_socket_stm32f4\config.o: ../Core/Inc/http.h
 web_socket_stm32f4\config.o: ../Middlewares/Third_Party/LwIP/src/include/lwip/opt.h
@@ -72,6 +73,5 @@ web_socket_stm32f4\config.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/
 web_socket_stm32f4\config.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h
 web_socket_stm32f4\config.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h
 web_socket_stm32f4\config.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h
-web_socket_stm32f4\config.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
 web_socket_stm32f4\config.o: ../Core/Inc/websocket.h
 web_socket_stm32f4\config.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h

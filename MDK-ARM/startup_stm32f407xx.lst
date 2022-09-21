@@ -832,14 +832,15 @@ ARM Macro Assembler    Page 13
   423 0000001C                 END
               00000000 
               00000000 
-Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M4.fp --apcs=int
-erwork --depend=web_socket_stm32f4\startup_stm32f407xx.d -oweb_socket_stm32f4\s
-tartup_stm32f407xx.o -I..\Core\Inc -I.\RTE\_web_socket_stm32f4 -IC:\Users\UCR27
-0\AppData\Local\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include -IC:\Users\UCR270\
-AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.14.0\Drivers\CMSIS\Device\ST\STM32
-F4xx\Include --predefine="__MICROLIB SETA 1" --predefine="__UVISION_VERSION SET
-A 525" --predefine="_RTE_ SETA 1" --predefine="STM32F407xx SETA 1" --list=start
-up_stm32f407xx.lst startup_stm32f407xx.s
+Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M4.fp.sp --apcs=
+interwork --depend=web_socket_stm32f4\startup_stm32f407xx.d -oweb_socket_stm32f
+4\startup_stm32f407xx.o -I..\Core\Inc -I.\RTE\_web_socket_stm32f4 -IC:\Users\Ad
+ministrator\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include -IC:\Use
+rs\Administrator\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSI
+S\Device\ST\STM32F4xx\Include --predefine="__MICROLIB SETA 1" --predefine="__UV
+ISION_VERSION SETA 533" --predefine="_RTE_ SETA 1" --predefine="STM32F429xx SET
+A 1" --predefine="_RTE_ SETA 1" --list=startup_stm32f407xx.lst startup_stm32f40
+7xx.s
 
 
 
