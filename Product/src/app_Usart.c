@@ -19,6 +19,7 @@
 #include "cmsis_os.h"
 #include "stdio.h"
 #include "usart.h"
+#include "../../SEGGER_RTT_V780a/RTT/SEGGER_RTT.h"
 
 /** @addtogroup app_smart
   * @{
@@ -113,10 +114,15 @@ void appUsart_SendTask(void const *argument)
 {
     /* Infinite loop */
     uint32_t    CntSendTask;
+    char        EndSendChar[4] = { 0xff, 0xff, 0xff, 0x00 };
+    printf("page 1     ");
     for(;;)
     {
         CntSendTask = osKernelSysTick();
-        printf("page 1   t3.txt=\"RunningCount:%d\"\r\n", CntSendTask);
+
+        printf("t3.txt=\"RunningCount:%d\"%s", CntSendTask,EndSendChar);
+        //printf("t3.txt=\"192.168.88.%d\"%s", (uint8_t) CntSendTask, EndSendChar);
+			  //SEGGER_RTT_printf(0,"t3.txt=\"192.168.88.%d\"%s\r\n", (uint8_t) CntSendTask, "RTT");
         osDelay(100);
     }
 }
@@ -133,6 +139,23 @@ void appUsart_TaskInit(void)
     /* definition and creation of SendMessageTask */
     osThreadDef(UsartSendTask, appUsart_SendTask, osPriorityNormal, 0, 128);
     UsartSendTaskHandle = osThreadCreate(osThread(UsartSendTask), NULL);
+}
+
+
+/**
+* @brief  FunctionName:   
+*         @note: Please replace this comments!!!
+* @param  input:  void
+* @param  output: void
+* @retval return value
+*/
+void appUsart_OutputNetStatus(uint8_t status)
+{
+    switch(status)
+    {
+        case 0:     printf("Internet connection is lossing!!\r\n"); break;
+        default:    printf("Internet connection is okay!!\r\n"); break;
+    }
 }
 
 /**

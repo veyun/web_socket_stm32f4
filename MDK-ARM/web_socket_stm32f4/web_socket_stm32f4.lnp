@@ -146,6 +146,8 @@
 "web_socket_stm32f4\nd6.o"
 "web_socket_stm32f4\sys_arch.o"
 "web_socket_stm32f4\mqtt.o"
+"web_socket_stm32f4\segger_rtt.o"
+"web_socket_stm32f4\segger_rtt_printf.o"
 "web_socket_stm32f4\retarget_io.o"
 --library_type=microlib --strict --scatter "web_socket_stm32f4\web_socket_stm32f4.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols

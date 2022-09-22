@@ -23,9 +23,12 @@ dbg
 /dbg
 
 #current setting
-../MDK-ARM/web_socket_stm32f4
+/web_socket_stm32f4
 *.__i
 *.crf
 *.o
 *.htm
 *.uvprojx
+*.txt
+*.d
+*.h_tmp

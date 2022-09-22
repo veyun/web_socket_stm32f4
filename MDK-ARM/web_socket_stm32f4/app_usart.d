@@ -51,3 +51,7 @@ web_socket_stm32f4\app_usart.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ha
 web_socket_stm32f4\app_usart.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h
 web_socket_stm32f4\app_usart.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h
 web_socket_stm32f4\app_usart.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+web_socket_stm32f4\app_usart.o: ..\Product\src\../../SEGGER_RTT_V780a/RTT/SEGGER_RTT.h
+web_socket_stm32f4\app_usart.o: ..\Product\src\../../SEGGER_RTT_V780a/RTT/../Config/SEGGER_RTT_Conf.h
+web_socket_stm32f4\app_usart.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+web_socket_stm32f4\app_usart.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h
