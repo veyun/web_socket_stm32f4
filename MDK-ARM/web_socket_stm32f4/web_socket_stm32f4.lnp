@@ -208,6 +208,7 @@
 "web_socket_stm32f4\x509_csr.o"
 "web_socket_stm32f4\xtea.o"
 "web_socket_stm32f4\hardware_rng.o"
+"web_socket_stm32f4\app_usart.o"
 "web_socket_stm32f4\retarget_io.o"
 --library_type=microlib --strict --scatter "web_socket_stm32f4\web_socket_stm32f4.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols

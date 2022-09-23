@@ -77,3 +77,4 @@ web_socket_stm32f4\freertos.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_
 web_socket_stm32f4\freertos.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h
 web_socket_stm32f4\freertos.o: ../Core/Inc/websocket.h
 web_socket_stm32f4\freertos.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h
+web_socket_stm32f4\freertos.o: ../Core/Src/../../Product/h/app_Usart.h

@@ -29,6 +29,7 @@
 #include "rng.h"
 #include "http.h"
 #include "websocket.h"
+#include "../../Product/h/app_Usart.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -118,6 +119,7 @@ void MX_FREERTOS_Init(void) {
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
+	appUsart_TaskInit();
   /* USER CODE END RTOS_THREADS */
 
 }
