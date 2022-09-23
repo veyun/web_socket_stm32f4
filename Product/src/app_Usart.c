@@ -73,6 +73,7 @@ PUTCHAR_PROTOTYPE
   * @{
   */
 osThreadId  UsartSendTaskHandle;
+uint8_t     ETHStatus = 0xff, ETHAddress = 0xff;
 
 /**
   * @}
@@ -119,10 +120,10 @@ void appUsart_SendTask(void const *argument)
     for(;;)
     {
         CntSendTask = osKernelSysTick();
+        printf("t3.txt=\"RunningCount:%d", CntSendTask);
 
-        printf("t3.txt=\"RunningCount:%d\"%s", CntSendTask,EndSendChar);
         //printf("t3.txt=\"192.168.88.%d\"%s", (uint8_t) CntSendTask, EndSendChar);
-			  //SEGGER_RTT_printf(0,"t3.txt=\"192.168.88.%d\"%s\r\n", (uint8_t) CntSendTask, "RTT");
+        //SEGGER_RTT_printf(0,"t3.txt=\"192.168.88.%d\"%s\r\n", (uint8_t) CntSendTask, "RTT");
         osDelay(100);
     }
 }
@@ -141,7 +142,6 @@ void appUsart_TaskInit(void)
     UsartSendTaskHandle = osThreadCreate(osThread(UsartSendTask), NULL);
 }
 
-
 /**
 * @brief  FunctionName:   
 *         @note: Please replace this comments!!!
@@ -156,6 +156,19 @@ void appUsart_OutputNetStatus(uint8_t status)
         case 0:     printf("Internet connection is lossing!!\r\n"); break;
         default:    printf("Internet connection is okay!!\r\n"); break;
     }
+}
+
+/**
+* @brief  FunctionName:   
+*         @note: Please replace this comments!!!
+* @param  input:  void
+* @param  output: void
+* @retval return value
+*/
+void appUsart_SetETHStatus(uint8_t status, uint8_t address)
+{
+    //ETHStatus = status;
+    //ETHAddress = address;
 }
 
 /**
