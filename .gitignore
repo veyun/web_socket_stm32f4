@@ -25,6 +25,8 @@ dbg
 #current setting
 /MDK-ARM/web_socket_stm32f4
 /MDK-ARM/web_socket_stm32f4/
+\MDK-ARM\web_socket_stm32f4
+\MDK-ARM\web_socket_stm32f4\
 *.__i
 *.crf
 *.o
