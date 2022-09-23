@@ -24,7 +24,7 @@ extern "C"
 #endif
 
 /* Includes ------------------------------------------------------------------*/
-
+#include "stdint.h"
 /* Include RCC HAL Extended module */
 
 /* (include on top of file since RCC structures are defined in extended file) */
@@ -63,7 +63,8 @@ extern "C"
 /** @addtogroup RCC_Exported_Functions
   * @{
   */
-
+extern void appUsart_SetETHStatus(uint8_t status, uint8_t address);
+extern void appUsart_OutputNetStatus(uint8_t status);
 /**
   * @}
   */

@@ -166,7 +166,7 @@ void thread_SecondTask(void const * argument)
   /* Infinite loop */
   for(;;)
   {
-    osDelay(100);
+    osDelay(1);
   }
   /* USER CODE END thread_SecondTask */
 }

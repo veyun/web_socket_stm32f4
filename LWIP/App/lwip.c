@@ -28,7 +28,7 @@
 #include "ethernetif.h"
 
 /* USER CODE BEGIN 0 */
-
+#include "../../Product/h/app_Usart.h"
 /* USER CODE END 0 */
 /* Private function prototypes -----------------------------------------------*/
 static void ethernet_link_status_updated(struct netif *netif);
@@ -130,11 +130,13 @@ static void ethernet_link_status_updated(struct netif *netif)
   if (netif_is_up(netif))
   {
 /* USER CODE BEGIN 5 */
+		 appUsart_OutputNetStatus(0xFF);
 /* USER CODE END 5 */
   }
   else /* netif is down */
   {
 /* USER CODE BEGIN 6 */
+		 appUsart_OutputNetStatus(0);
 /* USER CODE END 6 */
   }
 }
