@@ -14,9 +14,9 @@
       <uAC6>0</uAC6>
       <TargetOption>
         <TargetCommonOption>
-          <Device>STM32F407VGTx</Device>
+          <Device>STM32F429IITx</Device>
           <Vendor>STMicroelectronics</Vendor>
-          <PackID>Keil.STM32F4xx_DFP.2.14.0</PackID>
+          <PackID>Keil.STM32F4xx_DFP.2.15.0</PackID>
           <PackURL>http://www.keil.com/pack/</PackURL>
           <Cpu>IRAM(0x20000000-0x2001FFFF) IRAM2(0x10000000-0x1000FFFF) IROM(0x8000000-0x80FFFFF) CLOCK(25000000) FPU2 CPUTYPE("Cortex-M4")</Cpu>
           <FlashUtilSpec></FlashUtilSpec>
@@ -134,11 +134,11 @@
             <RunIndependent>0</RunIndependent>
             <UpdateFlashBeforeDebugging>1</UpdateFlashBeforeDebugging>
             <Capability>1</Capability>
-            <DriverSelection>4107</DriverSelection>
+            <DriverSelection>4101</DriverSelection>
           </Flash1>
           <bUseTDR>1</bUseTDR>
           <Flash2>STLink\ST-LINKIII-KEIL_SWO.dll</Flash2>
-          <Flash3></Flash3>
+          <Flash3>"" ()</Flash3>
           <Flash4></Flash4>
           <pFcarmOut></pFcarmOut>
           <pFcarmGrp></pFcarmGrp>
@@ -184,6 +184,8 @@
             <hadXRAM>0</hadXRAM>
             <uocXRam>0</uocXRam>
             <RvdsVP>2</RvdsVP>
+            <RvdsMve>0</RvdsMve>
+            <RvdsCdeCp>0</RvdsCdeCp>
             <hadIRAM2>1</hadIRAM2>
             <hadIROM2>0</hadIROM2>
             <StupSel>8</StupSel>
@@ -335,9 +337,9 @@
             <v6Rtti>0</v6Rtti>
             <VariousControls>
               <MiscControls></MiscControls>
-              <Define>MBEDTLS_CONFIG_FILE=&lt;mbedtls_config.h&gt;,USE_HAL_DRIVER,STM32F407xx</Define>
+              <Define>MBEDTLS_CONFIG_FILE=&lt;mbedtls_config.h&gt;,USE_HAL_DRIVER,STM32F429xx</Define>
               <Undefine></Undefine>
-              <IncludePath>../Core/Inc;          ../LWIP/App;          ../LWIP/Target;          ../MBEDTLS/App;          ../Middlewares/Third_Party/LwIP/src/include;          ../Middlewares/Third_Party/LwIP/system;          ../Middlewares/Third_Party/mbedTLS/include;          ../Drivers/STM32F4xx_HAL_Driver/Inc;          ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy;          ../Middlewares/Third_Party/FreeRTOS/Source/include;          ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS;          ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F;          ../Middlewares/Third_Party/LwIP/src/include/netif/ppp;          ../Drivers/CMSIS/Device/ST/STM32F4xx/Include;          ../Middlewares/Third_Party/LwIP/src/include/lwip;          ../Middlewares/Third_Party/LwIP/src/include/lwip/apps;          ../Middlewares/Third_Party/LwIP/src/include/lwip/priv;          ../Middlewares/Third_Party/LwIP/src/include/lwip/prot;          ../Middlewares/Third_Party/LwIP/src/include/netif;          ../Middlewares/Third_Party/LwIP/src/include/compat/posix;          ../Middlewares/Third_Party/LwIP/src/include/compat/posix/arpa;          ../Middlewares/Third_Party/LwIP/src/include/compat/posix/net;          ../Middlewares/Third_Party/LwIP/src/include/compat/posix/sys;          ../Middlewares/Third_Party/LwIP/src/include/compat/stdc;          ../Middlewares/Third_Party/LwIP/system/arch;          ../Middlewares/Third_Party/mbedTLS/include/mbedtls;          ../Drivers/CMSIS/Include</IncludePath>
+              <IncludePath>../Core/Inc;            ../LWIP/App;            ../LWIP/Target;            ../MBEDTLS/App;            ../Middlewares/Third_Party/LwIP/src/include;            ../Middlewares/Third_Party/LwIP/system;            ../Middlewares/Third_Party/mbedTLS/include;            ../Drivers/STM32F4xx_HAL_Driver/Inc;            ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy;            ../Middlewares/Third_Party/FreeRTOS/Source/include;            ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS;            ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F;            ../Middlewares/Third_Party/LwIP/src/include/netif/ppp;            ../Drivers/CMSIS/Device/ST/STM32F4xx/Include;            ../Middlewares/Third_Party/LwIP/src/include/lwip;            ../Middlewares/Third_Party/LwIP/src/include/lwip/apps;            ../Middlewares/Third_Party/LwIP/src/include/lwip/priv;            ../Middlewares/Third_Party/LwIP/src/include/lwip/prot;            ../Middlewares/Third_Party/LwIP/src/include/netif;            ../Middlewares/Third_Party/LwIP/src/include/compat/posix;            ../Middlewares/Third_Party/LwIP/src/include/compat/posix/arpa;            ../Middlewares/Third_Party/LwIP/src/include/compat/posix/net;            ../Middlewares/Third_Party/LwIP/src/include/compat/posix/sys;            ../Middlewares/Third_Party/LwIP/src/include/compat/stdc;            ../Middlewares/Third_Party/LwIP/system/arch;            ../Middlewares/Third_Party/mbedTLS/include/mbedtls;            ../Drivers/CMSIS/Include</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -350,7 +352,7 @@
             <NoWarn>0</NoWarn>
             <uSurpInc>0</uSurpInc>
             <useXO>0</useXO>
-            <uClangAs>0</uClangAs>
+            <ClangAsOpt>4</ClangAsOpt>
             <VariousControls>
               <MiscControls></MiscControls>
               <Define></Define>
@@ -402,6 +404,21 @@
               <FilePath>..\Core\Src\utils.c</FilePath>
             </File>
             <File>
+              <FileName>http.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Core\Src\http.c</FilePath>
+            </File>
+            <File>
+              <FileName>websocket.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Core\Src\websocket.c</FilePath>
+            </File>
+            <File>
+              <FileName>jsonlib.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Core\Src\jsonlib.c</FilePath>
+            </File>
+            <File>
               <FileName>main.c</FileName>
               <FileType>1</FileType>
               <FilePath>../Core/Src/main.c</FilePath>
@@ -427,6 +444,11 @@
               <FilePath>../Core/Src/rng.c</FilePath>
             </File>
             <File>
+              <FileName>usart.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../Core/Src/usart.c</FilePath>
+            </File>
+            <File>
               <FileName>stm32f4xx_it.c</FileName>
               <FileType>1</FileType>
               <FilePath>../Core/Src/stm32f4xx_it.c</FilePath>
@@ -440,21 +462,6 @@
               <FileName>stm32f4xx_hal_timebase_tim.c</FileName>
               <FileType>1</FileType>
               <FilePath>../Core/Src/stm32f4xx_hal_timebase_tim.c</FilePath>
-            </File>
-            <File>
-              <FileName>http.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Core\Src\http.c</FilePath>
-            </File>
-            <File>
-              <FileName>websocket.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Core\Src\websocket.c</FilePath>
-            </File>
-            <File>
-              <FileName>jsonlib.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Core\Src\jsonlib.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -590,6 +597,11 @@
               <FileName>stm32f4xx_hal_tim_ex.c</FileName>
               <FileType>1</FileType>
               <FilePath>../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f4xx_hal_uart.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c</FilePath>
             </File>
           </Files>
         </Group>

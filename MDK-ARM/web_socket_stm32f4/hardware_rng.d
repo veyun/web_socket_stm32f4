@@ -8,7 +8,7 @@ web_socket_stm32f4\hardware_rng.o: ../Core/Inc/stm32f4xx_hal_conf.h
 web_socket_stm32f4\hardware_rng.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h
 web_socket_stm32f4\hardware_rng.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h
 web_socket_stm32f4\hardware_rng.o: ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h
-web_socket_stm32f4\hardware_rng.o: ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h
+web_socket_stm32f4\hardware_rng.o: ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f429xx.h
 web_socket_stm32f4\hardware_rng.o: ../Drivers/CMSIS/Include/core_cm4.h
 web_socket_stm32f4\hardware_rng.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 web_socket_stm32f4\hardware_rng.o: ../Drivers/CMSIS/Include/cmsis_version.h
@@ -36,5 +36,6 @@ web_socket_stm32f4\hardware_rng.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx
 web_socket_stm32f4\hardware_rng.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rng.h
 web_socket_stm32f4\hardware_rng.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h
 web_socket_stm32f4\hardware_rng.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h
+web_socket_stm32f4\hardware_rng.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h
 web_socket_stm32f4\hardware_rng.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 web_socket_stm32f4\hardware_rng.o: ../Middlewares/Third_Party/mbedTLS/include/mbedtls/entropy_poll.h

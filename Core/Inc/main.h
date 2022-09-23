@@ -59,6 +59,26 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
+#define LCD_BckLght_Pin GPIO_PIN_13
+#define LCD_BckLght_GPIO_Port GPIOC
+#define KEY1_Pin GPIO_PIN_8
+#define KEY1_GPIO_Port GPIOH
+#define KEY2_Pin GPIO_PIN_9
+#define KEY2_GPIO_Port GPIOH
+#define KEY3_Pin GPIO_PIN_10
+#define KEY3_GPIO_Port GPIOH
+#define KEY4_Pin GPIO_PIN_11
+#define KEY4_GPIO_Port GPIOH
+#define KEY5_Pin GPIO_PIN_12
+#define KEY5_GPIO_Port GPIOB
+#define KEY6_Pin GPIO_PIN_13
+#define KEY6_GPIO_Port GPIOB
+#define KEY7_Pin GPIO_PIN_14
+#define KEY7_GPIO_Port GPIOB
+#define KEY8_Pin GPIO_PIN_15
+#define KEY8_GPIO_Port GPIOB
+#define BEEP_Pin GPIO_PIN_5
+#define BEEP_GPIO_Port GPIOB
 /* USER CODE BEGIN Private defines */
 
 /* USER CODE END Private defines */
