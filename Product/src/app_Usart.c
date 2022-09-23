@@ -127,7 +127,7 @@ void appUsart_SendTask(void const *argument)
         CntSendTask = osKernelSysTick();
         //memset(StringBuff, 0, SEND_BUFF_LENGTH);
         //sprintf((char *) &StringBuff[0], "Running time:%d,Address:%d", CntSendTask, ETHAddress);
-				printf("Running time:%d,Address:%d", CntSendTask,ETHAddress);
+				//printf("Running time:%d,Address:%d", CntSendTask,ETHAddress);
 
         //printf("t3.txt=\"192.168.88.%d\"%s", (uint8_t) CntSendTask, EndSendChar);
         //SEGGER_RTT_printf(0,"t3.txt=\"192.168.88.%d\"%s\r\n", (uint8_t) CntSendTask, "RTT");
