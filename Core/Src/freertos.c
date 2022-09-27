@@ -53,7 +53,8 @@ extern http_server_t http_server;
 extern ws_server_t ws_server;
 /* USER CODE END Variables */
 osThreadId MainTaskHandle;
-osThreadId SecondTaskHandle;
+osThreadId MonitorTaskHandle;
+osThreadId DisplayTaskHandle;
 
 /* Private function prototypes -----------------------------------------------*/
 /* USER CODE BEGIN FunctionPrototypes */
@@ -61,7 +62,8 @@ osThreadId SecondTaskHandle;
 /* USER CODE END FunctionPrototypes */
 
 void thread_MainTask(void const * argument);
-void thread_SecondTask(void const * argument);
+void thread_MonitorTask(void const * argument);
+void thread_DisplayTask(void const * argument);
 
 extern void MX_LWIP_Init(void);
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
@@ -113,9 +115,13 @@ void MX_FREERTOS_Init(void) {
   osThreadDef(MainTask, thread_MainTask, osPriorityNormal, 0, 128);
   MainTaskHandle = osThreadCreate(osThread(MainTask), NULL);
 
-  /* definition and creation of SecondTask */
-  osThreadDef(SecondTask, thread_SecondTask, osPriorityNormal, 0, 128);
-  SecondTaskHandle = osThreadCreate(osThread(SecondTask), NULL);
+  /* definition and creation of MonitorTask */
+  osThreadDef(MonitorTask, thread_MonitorTask, osPriorityLow, 0, 128);
+  MonitorTaskHandle = osThreadCreate(osThread(MonitorTask), NULL);
+
+  /* definition and creation of DisplayTask */
+  osThreadDef(DisplayTask, thread_DisplayTask, osPriorityLow, 0, 128);
+  DisplayTaskHandle = osThreadCreate(osThread(DisplayTask), NULL);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -154,22 +160,40 @@ void thread_MainTask(void const * argument)
   /* USER CODE END thread_MainTask */
 }
 
-/* USER CODE BEGIN Header_thread_SecondTask */
+/* USER CODE BEGIN Header_thread_MonitorTask */
 /**
-* @brief Function implementing the SecondTask thread.
+* @brief Function implementing the MonitorTask thread.
 * @param argument: Not used
 * @retval None
 */
-/* USER CODE END Header_thread_SecondTask */
-void thread_SecondTask(void const * argument)
+/* USER CODE END Header_thread_MonitorTask */
+__weak void thread_MonitorTask(void const * argument)
 {
-  /* USER CODE BEGIN thread_SecondTask */
+  /* USER CODE BEGIN thread_MonitorTask */
   /* Infinite loop */
   for(;;)
   {
-    osDelay(100);
+    osDelay(1);
   }
-  /* USER CODE END thread_SecondTask */
+  /* USER CODE END thread_MonitorTask */
+}
+
+/* USER CODE BEGIN Header_thread_DisplayTask */
+/**
+* @brief Function implementing the DisplayTask thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_thread_DisplayTask */
+__weak void thread_DisplayTask(void const * argument)
+{
+  /* USER CODE BEGIN thread_DisplayTask */
+  /* Infinite loop */
+  for(;;)
+  {
+    osDelay(1);
+  }
+  /* USER CODE END thread_DisplayTask */
 }
 
 /* Private application code --------------------------------------------------*/

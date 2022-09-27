@@ -20,6 +20,7 @@
 #include "stdio.h"
 #include "usart.h"
 #include "../../SEGGER_RTT_V780a/RTT/SEGGER_RTT.h"
+#include "lwip/netif.h"
 
 /** @addtogroup app_smart
   * @{
@@ -63,7 +64,8 @@
 PUTCHAR_PROTOTYPE
 {
     HAL_UART_Transmit(&huart1, (uint8_t *) &ch, 1, HAL_TICK_FREQ_100HZ);
-	  //HAL_UART_Transmit_DMA
+
+    //HAL_UART_Transmit_DMA
     return(ch);
 }
 
@@ -121,14 +123,15 @@ void appUsart_SendTask(void const *argument)
     /* Infinite loop */
     uint32_t    CntSendTask;
     char        EndSendChar[4] = { 0xff, 0xff, 0xff, 0x00 };
+
     //printf("page 1     ");
     for(;;)
     {
         CntSendTask = osKernelSysTick();
+
         //memset(StringBuff, 0, SEND_BUFF_LENGTH);
         //sprintf((char *) &StringBuff[0], "Running time:%d,Address:%d", CntSendTask, ETHAddress);
-				//printf("Running time:%d,Address:%d", CntSendTask,ETHAddress);
-
+        //printf("Running time:%d,Address:%d", CntSendTask,ETHAddress);
         //printf("t3.txt=\"192.168.88.%d\"%s", (uint8_t) CntSendTask, EndSendChar);
         //SEGGER_RTT_printf(0,"t3.txt=\"192.168.88.%d\"%s\r\n", (uint8_t) CntSendTask, "RTT");
         osDelay(100);
@@ -182,6 +185,18 @@ void appUsart_SetETHStatus(uint8_t status, uint8_t address)
     ETHStatus = status;
     ETHAddress = address;
     osThreadResumeAll();
+}
+
+/**
+* @brief  FunctionName:   
+*         @note: Please replace this comments!!!
+* @param  input:  void
+* @param  output: void
+* @retval return value
+*/
+void ethernetif_notify_conn_changed(struct netif *netif)
+{
+    printf("========>Enthernet status is:!!%x<========\r\n", netif->flags);
 }
 
 /**
