@@ -70,13 +70,13 @@ void Error_Handler(void);
 #define KEY4_Pin GPIO_PIN_11
 #define KEY4_GPIO_Port GPIOH
 #define KEY5_Pin GPIO_PIN_12
-#define KEY5_GPIO_Port GPIOB
+#define KEY5_GPIO_Port GPIOH
 #define KEY6_Pin GPIO_PIN_13
-#define KEY6_GPIO_Port GPIOB
+#define KEY6_GPIO_Port GPIOH
 #define KEY7_Pin GPIO_PIN_14
-#define KEY7_GPIO_Port GPIOB
+#define KEY7_GPIO_Port GPIOH
 #define KEY8_Pin GPIO_PIN_15
-#define KEY8_GPIO_Port GPIOB
+#define KEY8_GPIO_Port GPIOH
 #define BEEP_Pin GPIO_PIN_5
 #define BEEP_GPIO_Port GPIOB
 /* USER CODE BEGIN Private defines */

@@ -341,7 +341,12 @@ static void low_level_init(struct netif *netif)
 #endif /* LWIP_ARP || LWIP_ETHERNET */
 
 /* USER CODE BEGIN LOW_LEVEL_INIT */
-    
+#if 0
+/* Activ the LED_ACT PIN */
+  regvalue = HAL_ETH_ReadPHYRegister(&heth, 0X19, &regvalue);
+  regvalue |= 0x01 << 5;
+  HAL_ETH_WritePHYRegister(&heth, 0X19, regvalue);
+#endif	
 /* USER CODE END LOW_LEVEL_INIT */
 }
 

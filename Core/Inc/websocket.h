@@ -5,7 +5,7 @@
 #include "cmsis_os.h"
 
 #define WS_USE_SDRAM                 0
-#define WS_PORT                      8765
+#define WS_PORT                      20012
 #define WS_MAX_CLIENTS               1
 #define WS_SEND_BUFFER_SIZE          1024
 #define WS_MSG_BUFFER_SIZE           512
