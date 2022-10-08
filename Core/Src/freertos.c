@@ -155,7 +155,8 @@ void thread_MainTask(void const * argument)
   /* Infinite loop */
   for(;;)
   {
-    osDelay(100);
+		//printf("Runing main  task---------");
+    osDelay(1000);
   }
   /* USER CODE END thread_MainTask */
 }
@@ -173,7 +174,8 @@ __weak void thread_MonitorTask(void const * argument)
   /* Infinite loop */
   for(;;)
   {
-    osDelay(1);
+		printf("Runing Monitor  task---------");
+    osDelay(1000);
   }
   /* USER CODE END thread_MonitorTask */
 }
@@ -191,7 +193,8 @@ __weak void thread_DisplayTask(void const * argument)
   /* Infinite loop */
   for(;;)
   {
-    osDelay(1);
+		 printf("Runing Display task---------");
+    osDelay(1000);
   }
   /* USER CODE END thread_DisplayTask */
 }

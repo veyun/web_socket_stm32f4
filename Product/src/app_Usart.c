@@ -80,6 +80,7 @@ PUTCHAR_PROTOTYPE
   */
 osThreadId      UsartSendTaskHandle;
 static uint8_t  ETHStatus = 0xff, ETHAddress = 0xff;
+uint32_t        ETHEntryInterruption=0;
 uint8_t         StringBuff[SEND_BUFF_LENGTH] = { 0 };
 
 /**
@@ -118,7 +119,7 @@ uint8_t         StringBuff[SEND_BUFF_LENGTH] = { 0 };
 * @param  output: void
 * @retval return value
 */
-void appUsart_SendTask(void const *argument)
+void thread_DisplayTask(void const * argument)
 {
     /* Infinite loop */
     uint32_t    CntSendTask;
@@ -131,10 +132,11 @@ void appUsart_SendTask(void const *argument)
 
         //memset(StringBuff, 0, SEND_BUFF_LENGTH);
         //sprintf((char *) &StringBuff[0], "Running time:%d,Address:%d", CntSendTask, ETHAddress);
-        //printf("Running time:%d,Address:%d", CntSendTask,ETHAddress);
+        printf("Running time:%d,Address:%d------", CntSendTask, ETHEntryInterruption);
+
         //printf("t3.txt=\"192.168.88.%d\"%s", (uint8_t) CntSendTask, EndSendChar);
         //SEGGER_RTT_printf(0,"t3.txt=\"192.168.88.%d\"%s\r\n", (uint8_t) CntSendTask, "RTT");
-        osDelay(100);
+        osDelay(1000);
     }
 }
 
@@ -148,12 +150,12 @@ void appUsart_SendTask(void const *argument)
 void appUsart_TaskInit(void)
 {
     /* definition and creation of SendMessageTask */
-    osThreadDef(UsartSendTask, appUsart_SendTask, osPriorityBelowNormal, 0, 300);
-    UsartSendTaskHandle = osThreadCreate(osThread(UsartSendTask), NULL);
-    if(UsartSendTaskHandle == NULL)
-    {
-        ;
-    }
+    //osThreadDef(UsartSendTask, appUsart_SendTask, osPriorityAboveNormal, 0, 300);
+    //UsartSendTaskHandle = osThreadCreate(osThread(UsartSendTask), NULL);
+    //if(UsartSendTaskHandle == NULL)
+    //{
+    //    ;
+    //}
 }
 
 /**
@@ -187,6 +189,19 @@ void appUsart_SetETHStatus(uint8_t status, uint8_t address)
     osThreadResumeAll();
 }
 
+
+/**
+* @brief  FunctionName:   
+*         @note: Please replace this comments!!!
+* @param  input:  void
+* @param  output: void
+* @retval return value
+*/
+void appUsart_IncreaseData(void)
+{
+    ETHEntryInterruption++;
+}
+
 /**
 * @brief  FunctionName:   
 *         @note: Please replace this comments!!!
@@ -197,6 +212,18 @@ void appUsart_SetETHStatus(uint8_t status, uint8_t address)
 void ethernetif_notify_conn_changed(struct netif *netif)
 {
     printf("========>Enthernet status is:!!%x<========\r\n", netif->flags);
+}
+
+/**
+* @brief  FunctionName:   
+*         @note: Please replace this comments!!!
+* @param  input:  void
+* @param  output: void
+* @retval return value
+*/
+void HAL_Delay(uint32_t Delay)
+{
+    osDelay(Delay);
 }
 
 /**

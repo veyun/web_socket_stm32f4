@@ -341,11 +341,31 @@ static void low_level_init(struct netif *netif)
 #endif /* LWIP_ARP || LWIP_ETHERNET */
 
 /* USER CODE BEGIN LOW_LEVEL_INIT */
-#if 0
-/* Activ the LED_ACT PIN */
-  regvalue = HAL_ETH_ReadPHYRegister(&heth, 0X19, &regvalue);
+#if 1
+	/* Activ the LED_ACT PIN, 
+		 bit6--bit5
+			X----1--Mode 1 
+			0----0--Mode 2 
+			1----0--Mode 3
+	In Mode 1, LEDs are configured as follows:
+	LED_LINK = ON for Good Link, OFF for No Link
+	LED_SPEED = ON in 100 Mb/s, OFF in 10 Mb/s
+	LED_ACT/COL = ON for Activity, OFF for No Activity
+	-----------------------------------------------
+	In Mode 2, LEDs are configured as follows:
+	LED_LINK = ON for good Link, BLINK for Activity
+	LED_SPEED = ON in 100 Mb/s, OFF in 10 Mb/s
+	LED_ACT/COL = ON for Collision, OFF for No Collision
+	Full Duplex, OFF for Half Duplex
+	-----------------------------------------------
+	In Mode 3, LEDs are configured as follows:
+	LED_LINK = ON for Good Link, BLINK for Activity
+	LED_SPEED = ON in 100 Mb/s, OFF in 10 Mb/s
+	LED_ACT/COL = ON for Full Duplex, OFF for Half Duplex
+	-----------------------------------------------*/
+  regvalue = HAL_ETH_ReadPHYRegister(&heth, 0X18, &regvalue);
   regvalue |= 0x01 << 5;
-  HAL_ETH_WritePHYRegister(&heth, 0X19, regvalue);
+  HAL_ETH_WritePHYRegister(&heth, 0X18, regvalue);
 #endif	
 /* USER CODE END LOW_LEVEL_INIT */
 }

@@ -61,7 +61,7 @@ extern CAN_HandleTypeDef hcan1;
 extern TIM_HandleTypeDef htim1;
 
 /* USER CODE BEGIN EV */
-
+extern void appUsart_IncreaseData(void);
 /* USER CODE END EV */
 
 /******************************************************************************/
@@ -198,7 +198,7 @@ void ETH_IRQHandler(void)
   /* USER CODE END ETH_IRQn 0 */
   HAL_ETH_IRQHandler(&heth);
   /* USER CODE BEGIN ETH_IRQn 1 */
- 
+  appUsart_IncreaseData();
   /* USER CODE END ETH_IRQn 1 */
 }
 

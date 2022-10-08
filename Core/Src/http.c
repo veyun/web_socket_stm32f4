@@ -57,7 +57,7 @@ void http_server_task( void * arg )
   http_server_t *server = (http_server_t*)arg;
   http_connection_t *connection;
 
-  struct netconn *conn = netconn_new(NETCONN_TCP);
+  struct netconn *conn = netconn_new(NETCONN_UDP);
   if (conn == NULL)
     vTaskDelete(NULL);
   if (netconn_bind(conn, NULL, 80) != ERR_OK)
