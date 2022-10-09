@@ -31,7 +31,7 @@ void ws_server_task( void * arg )
   ws_server_t *ws = (ws_server_t*)arg;
   ws_client_t *new_client;
 
-  struct netconn *ws_con = netconn_new(NETCONN_UDP);
+  struct netconn *ws_con = netconn_new(NETCONN_TCP);
   if (ws_con == NULL)
     vTaskDelete(NULL);
   if (netconn_bind(ws_con, NULL, WS_PORT) != ERR_OK)
