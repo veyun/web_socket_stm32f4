@@ -142,6 +142,7 @@ void thread_MainTask(void const * argument)
   /* USER CODE BEGIN thread_MainTask */
   MX_LWIP_Init();
   /** Get a cont files of website and make site catalogue */
+#if(0)
   if (http_create_filesystem(&http_server.file_system) == 0)
   {
     /** Create new token and start http server */
@@ -151,7 +152,10 @@ void thread_MainTask(void const * argument)
     sys_thread_new("HTTP", http_server_task, (void*)&http_server, 1024, osPriorityNormal);
   }
   sys_thread_new("WS", ws_server_task, (void*)&ws_server, 1024, osPriorityNormal);
-
+#else
+	//UDP_TaskInit();
+	//UDP_DemoInit();
+#endif
   /* Infinite loop */
   for(;;)
   {

@@ -83,6 +83,7 @@ void http_server_task( void * arg )
           vTaskResume(connection->task_handle);
         }
       }
+			
     }
     osDelay(10);
   }

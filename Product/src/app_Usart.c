@@ -89,6 +89,9 @@ uint8_t         StringBuff[SEND_BUFF_LENGTH] = { 0 };
   */
 
 /* Private function prototypes -----------------------------------------------*/
+extern uint8_t  IP_ADDRESS[];
+extern uint8_t  NETMASK_ADDRESS[];
+extern uint8_t  GATEWAY_ADDRESS[];
 
 /* Private functions ---------------------------------------------------------*/
 
@@ -225,7 +228,28 @@ void appUsart_IncreaseData(void)
 */
 void ethernetif_notify_conn_changed(struct netif *netif)
 {
-    printf("========>Enthernet status is:!!%x<========\r\n", netif->flags);
+    ip_addr_t   ipaddr;
+    ip_addr_t   netmask;
+    ip_addr_t   gw;
+    if(netif_is_link_up(netif))
+    {
+        IP_ADDR4(&ipaddr, IP_ADDRESS[0], IP_ADDRESS[1], IP_ADDRESS[2], IP_ADDRESS[3]);
+        IP_ADDR4(&netmask, NETMASK_ADDRESS[0], NETMASK_ADDRESS[1], NETMASK_ADDRESS[2], NETMASK_ADDRESS[3]);
+        IP_ADDR4(&gw, GATEWAY_ADDRESS[0], GATEWAY_ADDRESS[1], GATEWAY_ADDRESS[2], GATEWAY_ADDRESS[3]);
+        netif_set_addr(netif, &ipaddr, &netmask, &gw);
+
+        /* When the netif is fully configured this function must be called.*/
+
+        //netif_set_up(netif);
+    }
+    else
+    {
+        /*  When the netif link is down this function must be called.*/
+
+        //netif_set_down(netif);
+    }
+
+    ULOG_WARNING("========>Enthernet status is:!!%x<========\r\n", netif->flags);
 }
 
 /**
