@@ -21,6 +21,7 @@
 #include "usart.h"
 #include "../../SEGGER_RTT_V780a/RTT/SEGGER_RTT.h"
 #include "lwip/netif.h"
+#include "../../Product/h/ulog.h"
 
 /** @addtogroup app_smart
   * @{
@@ -80,7 +81,7 @@ PUTCHAR_PROTOTYPE
   */
 osThreadId      UsartSendTaskHandle;
 static uint8_t  ETHStatus = 0xff, ETHAddress = 0xff;
-uint32_t        ETHEntryInterruption=0;
+uint32_t        ETHEntryInterruption = 0;
 uint8_t         StringBuff[SEND_BUFF_LENGTH] = { 0 };
 
 /**
@@ -119,12 +120,25 @@ uint8_t         StringBuff[SEND_BUFF_LENGTH] = { 0 };
 * @param  output: void
 * @retval return value
 */
-//void thread_DisplayTask(void const * argument)
-void appUsart_SendTask(void const * argument)
+void my_console_logger(ulog_level_t level, char *msg)
+{
+    printf("[%s][%d]%s\n", ulog_level_name(level), osKernelSysTick(), msg);
+}
+
+/**
+* @brief  FunctionName:   
+*         @note: Please replace this comments!!!
+* @param  input:  void
+* @param  output: void
+* @retval return value
+*/
+void appUsart_SendTask(void const *argument)
 {
     /* Infinite loop */
     uint32_t    CntSendTask;
     char        EndSendChar[4] = { 0xff, 0xff, 0xff, 0x00 };
+    ULOG_INIT();
+    ULOG_SUBSCRIBE(my_console_logger, ULOG_WARNING_LEVEL);
 
     //printf("page 1     ");
     for(;;)
@@ -133,7 +147,7 @@ void appUsart_SendTask(void const * argument)
 
         //memset(StringBuff, 0, SEND_BUFF_LENGTH);
         //sprintf((char *) &StringBuff[0], "Running time:%d,Address:%d", CntSendTask, ETHAddress);
-        printf("Running time:%d,Address:%d------\n", CntSendTask, ETHEntryInterruption);
+        ULOG_WARNING("EntryInt:%d------\n", ETHEntryInterruption);
 
         //printf("t3.txt=\"192.168.88.%d\"%s", (uint8_t) CntSendTask, EndSendChar);
         //SEGGER_RTT_printf(0,"t3.txt=\"192.168.88.%d\"%s\r\n", (uint8_t) CntSendTask, "RTT");
@@ -189,7 +203,6 @@ void appUsart_SetETHStatus(uint8_t status, uint8_t address)
     ETHAddress = address;
     osThreadResumeAll();
 }
-
 
 /**
 * @brief  FunctionName:   
