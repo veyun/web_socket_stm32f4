@@ -4,7 +4,7 @@
 #include "lwip/opt.h"
 #include "lwip/arch.h"
 #include "lwip/api.h"
-#include "cmsis_os.h"
+//#include "cmsis_os.h"
 #include <string.h>
 
 /** HTTP configuration */

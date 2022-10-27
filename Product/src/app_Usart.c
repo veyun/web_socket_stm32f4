@@ -16,7 +16,7 @@
 */
 
 /* Includes ------------------------------------------------------------------*/
-#include "cmsis_os.h"
+//#include "cmsis_os.h"
 #include "stdio.h"
 #include "usart.h"
 #include "../../SEGGER_RTT_V780a/RTT/SEGGER_RTT.h"

@@ -834,12 +834,12 @@ ARM Macro Assembler    Page 13
               00000000 
 Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M4.fp.sp --apcs=
 interwork --depend=..\..\outputhex\startup_stm32f407xx.d -o..\..\outputhex\star
-tup_stm32f407xx.o -I..\Core\Inc -I.\RTE\_web_socket_stm32f4 -IC:\Users\Administ
-rator\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include -IC:\Users\Adm
-inistrator\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Devi
-ce\ST\STM32F4xx\Include --predefine="__MICROLIB SETA 1" --predefine="__UVISION_
-VERSION SETA 533" --predefine="_RTE_ SETA 1" --predefine="STM32F429xx SETA 1" -
--predefine="_RTE_ SETA 1" --list=startup_stm32f407xx.lst startup_stm32f407xx.s
+tup_stm32f407xx.o -I.\RTE\_web_socket_stm32f4 -IC:\Users\Administrator\AppData\
+Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include -IC:\Users\Administrator\App
+Data\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F4x
+x\Include --predefine="__MICROLIB SETA 1" --predefine="__UVISION_VERSION SETA 5
+33" --predefine="_RTE_ SETA 1" --predefine="STM32F429xx SETA 1" --predefine="_R
+TE_ SETA 1" --list=startup_stm32f407xx.lst startup_stm32f407xx.s
 
 
 

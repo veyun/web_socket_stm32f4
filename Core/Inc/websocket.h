@@ -2,7 +2,7 @@
 #define __WEBSOCKET_H
 
 #include "lwip/api.h"
-#include "cmsis_os.h"
+//#include "cmsis_os.h"
 
 #define WS_USE_SDRAM                 0
 #define WS_PORT                      20012

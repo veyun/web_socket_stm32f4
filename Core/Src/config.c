@@ -1,8 +1,8 @@
 #include "main.h"
-#include "http.h"
-#include "websocket.h"
+//#include "http.h"
+//#include "websocket.h"
 //#include "http_handlers.h"
-
+#if(0)
 uint8_t SELF_NET_ID = 0xF0;
 
 http_server_t http_server = {
@@ -19,3 +19,4 @@ http_server_t http_server = {
 ws_server_t ws_server = {
   .connected_clients_cnt = 0
 };
+#endif

@@ -50,7 +50,7 @@
 #include "lwip/tcp.h"
 #include <string.h>
 #include <stdio.h>
-#include "cmsis_os.h"
+//#include "cmsis_os.h"
 #include "usart.h"
 #include "lwip/netif.h"
 #include "../../Product/h/ulog.h"
