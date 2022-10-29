@@ -91,21 +91,21 @@ void upd_demo_connect(void)
     udpconn = netconn_new(NETCONN_UDP);                 //new net connect
     if(udpconn != NULL)                                 //check
     {
-        IP4_ADDR(&srcipaddr, 192, 168, 88, 102);        //dest address
+        IP4_ADDR(&srcipaddr, 192, 168, 0, 7);           //dest address
         err = netconn_bind(udpconn, &srcipaddr, 20012); //src address
-        IP4_ADDR(&destipaddr, 192, 168, 88, 12);        //dest address
+        IP4_ADDR(&destipaddr, 192, 168, 0, 3);          //dest address
         netconn_connect(udpconn, &destipaddr, 20011);   //connect
         if(err == ERR_OK)   //connect is passed
         {
         }
         else
         {
-            printf("UDP????\r\n");
+            printf("UDP service is okay!!!\r\n");
         }
     }
     else
     {
-        printf("UDP??????\r\n");
+        printf("UDP service is failure!!!r\n");
     }
 }
 
@@ -159,16 +159,20 @@ void appUDP_SendDemo(void const *argument)
     if(sentbuf != NULL)
     {
         netbuf_alloc(sentbuf, strlen((char *) udp_demo_sendbuf));
-        memcpy(sentbuf->p->payload, udp_demo_sendbuf, strlen((char *) udp_demo_sendbuf));   //?udp_demo_sendbuf?
+        sentbuf->p->payload = (char *) udp_demo_sendbuf;
+        sentbuf->p->len = strlen((char *) udp_demo_sendbuf);
+        if(UDPRecvDemoHandle != NULL)
+        {
+            vTaskResume(UDPRecvDemoHandle);     //Start Receive task
+        }
     }
 
-    //vTaskResume(UDPRecvDemoHandle);
     while(1)
     {
         err = netconn_send(udpconn, sentbuf);   //Send the buffer
         if(err != ERR_OK)
         {
-            printf("Sending Error\r\n");
+            printf("Sending Error:%d\r\n,", err);
             if(sentbuf != NULL)
             {
                 netbuf_delete(sentbuf);         //Clear send buffer
@@ -194,15 +198,13 @@ void appUDP_RecvDemo(void const *argument)
     vTaskSuspend(NULL);
     while(1)
     {
-        netconn_recv(udpconn, &recvbuf);                        //????
-        if(recvbuf != NULL)                                     //?????
+        netconn_recv(udpconn, &recvbuf);
+        if(recvbuf != NULL)
         {
-            printf("receive data\r\n");
-            memset(udp_demo_recvbuf, 0, UDP_DEMO_RX_BUFSIZE);   //?????????
-            for(q = recvbuf->p; q != NULL; q = q->next)         //?????pbuf??
+            printf("receive data:\r\n");
+            memset(udp_demo_recvbuf, 0, UDP_DEMO_RX_BUFSIZE);
+            for(q = recvbuf->p; q != NULL; q = q->next)
             {
-                //??????UDP_DEMO_RX_BUFSIZE????????UDP_DEMO_RX_BUFSIZE?????,????
-                //??????UDP_DEMO_RX_BUFSIZE????????,????????????
                 if(q->len > (UDP_DEMO_RX_BUFSIZE - data_len))
                 {
                     memcpy(udp_demo_recvbuf + data_len, q->payload, (UDP_DEMO_RX_BUFSIZE - data_len));  //????
@@ -215,15 +217,13 @@ void appUDP_RecvDemo(void const *argument)
                 data_len += q->len;
                 if(data_len > UDP_DEMO_RX_BUFSIZE)
                 {
-                    break;          //??TCP???????,??
+                    break;
                 }
             }
 
-            data_len = 0;           //?????data_len????
-
-            //????????
+            data_len = 0;
             printf("%s\r\n", udp_demo_recvbuf);
-            netbuf_delete(recvbuf); //??buf
+            netbuf_delete(recvbuf);
         }
         else
         {
@@ -242,17 +242,17 @@ void appUDP_RecvDemo(void const *argument)
 void UDP_DemoInit(void)
 {
     /* definition and creation of SendMessageTask */
-    osThreadDef(appUDP_SendDemo, appUDP_SendDemo, osPriorityAboveNormal, 0, 1000);
-    UDPSendDemoHandle = osThreadCreate(osThread(appUDP_SendDemo), NULL);
-    if(UDPSendDemoHandle == NULL)
+    osThreadDef(appUDP_RecvDemo, appUDP_RecvDemo, osPriorityAboveNormal, 0, 1000);
+    UDPRecvDemoHandle = osThreadCreate(osThread(appUDP_RecvDemo), NULL);
+    if(UDPRecvDemoHandle == NULL)
     {
         ;
     }
 
     /* definition and creation of SendMessageTask */
-    osThreadDef(appUDP_RecvDemo, appUDP_RecvDemo, osPriorityAboveNormal, 0, 1000);
-    UDPRecvDemoHandle = osThreadCreate(osThread(appUDP_RecvDemo), NULL);
-    if(UDPRecvDemoHandle == NULL)
+    osThreadDef(appUDP_SendDemo, appUDP_SendDemo, osPriorityAboveNormal, 0, 1000);
+    UDPSendDemoHandle = osThreadCreate(osThread(appUDP_SendDemo), NULL);
+    if(UDPSendDemoHandle == NULL)
     {
         ;
     }

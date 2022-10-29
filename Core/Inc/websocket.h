@@ -5,7 +5,7 @@
 #include "cmsis_os.h"
 
 #define WS_USE_SDRAM                 0
-#define WS_PORT                      20012
+#define WS_PORT                      8765//20012
 #define WS_MAX_CLIENTS               1//3
 #define WS_SEND_BUFFER_SIZE          1024
 #define WS_MSG_BUFFER_SIZE           512
@@ -13,7 +13,7 @@
 
 #define WS_GUID     "258EAFA5-E914-47DA-95CA-C5AB0DC85B11\0"
 
-#define WS_SEND_BUFFER_START_ADDR   (0x20020000-0x1000)
+#define WS_SEND_BUFFER_START_ADDR   (0xC0000000)//(0x20030000-0x1000)
 #define WS_SEND_BUFFER_END_ADDR     (WS_SEND_BUFFER_START_ADDR + WS_SEND_BUFFER_SIZE)
 
 typedef enum

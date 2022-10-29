@@ -60,7 +60,7 @@ typedef struct
 } http_server_t;
 
 /** Addresses HTTP ------------------------------------------------------------------------------ */
-#define HTTP_CONNECTION_START_ADDR       (0xC0000000)
+#define HTTP_CONNECTION_START_ADDR       (0x20030000-0x2000)
 #define HTTP_CONNECTION_SIZE             (sizeof(httpConnection_t) * HTTP_MAX_CONNECTIONS)
 #define HTTP_CONNECTION_END_ADDR         (HTTP_CONNECTION_START_ADDR + HTTP_CONNECTION_SIZE)
 

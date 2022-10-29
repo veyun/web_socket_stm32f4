@@ -154,7 +154,7 @@ void thread_MainTask(void const * argument)
   sys_thread_new("WS", ws_server_task, (void*)&ws_server, 1024, osPriorityNormal);
 #else
 	//UDP_TaskInit();
-	//UDP_DemoInit();
+	UDP_DemoInit();
 #endif
   /* Infinite loop */
   for(;;)
@@ -178,7 +178,7 @@ __weak void thread_MonitorTask(void const * argument)
   /* Infinite loop */
   for(;;)
   {
-		printf("Runing Monitor  task---------");
+		//printf("Runing Monitor  task---------");
     osDelay(1000);
   }
   /* USER CODE END thread_MonitorTask */
@@ -197,7 +197,7 @@ __weak void thread_DisplayTask(void const * argument)
   /* Infinite loop */
   for(;;)
   {
-		 printf("Runing Display task---------");
+		//printf("Runing Display task---------");
     osDelay(1000);
   }
   /* USER CODE END thread_DisplayTask */
